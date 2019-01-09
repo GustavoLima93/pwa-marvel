@@ -1,21 +1,21 @@
-#Tecnologias
+# Tecnologias
 
 -nodeJS 10
--Angular 7
--Bootstrap 4
--Api publica Marvel
+/ Angular 7
+/ Bootstrap 4
+/ Api publica Marvel
 
-#Modulos externos
+# Modulos externos
 
 -Ngx Bootstrap
 
 
-#Iniciar o Projeto
+# Iniciar o Projeto
 
 -Clone o Repositorio
--Utilize o Comando npm install na raiz do projeto para instalar as dependências 
--Utilize o comando ng serve para inicializar o servidor 
--Acesse do seu navegador a url > http://localhost:4200/home
+/ Utilize o Comando npm install na raiz do projeto para instalar as dependências 
+/ Utilize o comando ng serve para inicializar o servidor 
+/ Acesse do seu navegador a url > http://localhost:4200/home
 
 # PwaMarvel
 

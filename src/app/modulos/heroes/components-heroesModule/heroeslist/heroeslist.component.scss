@@ -1,0 +1,55 @@
+.encapsulado {
+    [_nghost-pmm-5] {
+        .page-link {
+            color: black; // background-color: #F3F3F3;
+            border-color: black
+        }
+        .page-item.active .page-link {
+            background-color: lightgrey;
+            border-color: black;
+            color: black
+        }
+    }
+
+    .f-left{
+        float: left;
+    }
+
+    .margin-ajst{
+        margin-top: 5px;
+        margin-right: 10px;
+    }
+
+    .margin-div-ajst{
+        margin-bottom: 20px; 
+    }
+
+    .margin-btn-ajst{
+        margin-top: 37px;
+    }
+
+    .form-control{
+        max-width: 200px!important;
+    }
+
+    .conf-historico{
+        border-bottom: solid 2px rgb(218, 217, 217); 
+        margin-bottom: 20px;
+    }
+    .linha-historico{
+        font-size: 30px; 
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        color: #4a4a4a;
+        margin-top: 7px;
+        font-weight: 600;
+        
+    }
+
+    label {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        font-weight: 600;
+        font-size: 15px;
+        color: #4a4a4a;
+    }
+
+}
