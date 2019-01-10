@@ -1,0 +1,104 @@
+.encapsulado {
+  [_nghost-pmm-5] {
+      .page-link {
+          color: black; // background-color: #F3F3F3;
+          border-color: black
+      }
+      .page-item.active .page-link {
+          background-color: #F44336;
+          border-color: black;
+          color: black
+      }
+  }
+
+  .f-left{
+      float: left;
+  }
+
+  .margin-ajst{
+      margin-top: 5px;
+      margin-right: 10px;
+  }
+
+  .margin-div-ajst{
+      margin-bottom: 20px;
+  }
+
+  .margin-btn-ajst{
+      margin-top: 37px;
+  }
+
+  .form-control{
+      max-width: 200px!important;
+  }
+
+  .conf-historico{
+      border-bottom: solid 1px black;
+      margin-bottom: 20px;
+  }
+  .linha-historico{
+      font-size: 30px;
+     // font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+      color: black;
+      margin-top: 7px;
+      //font-weight: 600;
+      font-family: 'Montserrat';
+
+  }
+
+  li {
+      margin-top: 10px;
+      box-shadow: 0 5px 5px rgb(216, 211, 211);
+      font-weight: 600;
+  }
+
+  .alerts-background{
+    background-color: none;
+    border: none;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    color: black
+  }
+
+  .alerts-background-warning{
+    background-color: none;
+    border: none;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    color: #ffa500
+  }
+
+  li:hover{
+      margin-top: 10px;
+      box-shadow: 0 5px 5px rgb(216, 211, 211);
+      font-weight: 600;
+      background-color: #f8f8ff;
+      cursor: pointer;
+      font-family: 'Montserrat';
+  }
+
+  img {
+      margin-right: 20px
+  }
+
+  input {
+      border: 1px solid;
+  }
+
+  span {
+    margin-right: 10px;
+  }
+
+  .color-red{
+    color: red
+  }
+
+  label {
+     // font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+      font-weight: 600;
+      font-size: 15px;
+      color: black;
+      font-family: 'Montserrat';
+  }
+
+}

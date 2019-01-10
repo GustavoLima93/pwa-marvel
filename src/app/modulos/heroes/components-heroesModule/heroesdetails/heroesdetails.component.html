@@ -1,5 +1,7 @@
 <div class="card">
+
   <div class="card-body ">
+
     <h5 class="card-title">{{hero?.name}}</h5>
     <p class="card-text" *ngIf="hero?.description != ''">{{hero?.description}}</p>
     <p *ngIf="hero?.description === ''">Does not have description</p>
@@ -9,6 +11,8 @@
         <li>{{serie.name}}</li>
       </ul>
     </div>
+    <img src="{{hero?.thumbnail.path}}.{{hero?.thumbnail.extension}}" class="card-img-top" alt="...">
   </div>
-  <img src="{{hero?.thumbnail.path}}.{{hero?.thumbnail.extension}}" class="card-img-top" alt="...">
+  <a href="#" [routerLink]="['/heroes/list']"> <i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i></a>
+
 </div>

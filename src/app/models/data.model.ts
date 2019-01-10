@@ -1,10 +1,10 @@
 import { Heroes } from './heroes.model';
 
-export interface Data { 
+export interface Data {
 
     offset: number,
     limit: number,
     total: number
     count: number,
-    results: Heroes[]
+    results: any[]
 }

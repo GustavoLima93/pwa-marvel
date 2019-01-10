@@ -29,12 +29,12 @@
   "dataGroups":[
     {
       "name":"heroes",
-      "urls":["https://gateway.marvel.com/**"],
-      "cacheConfig":{        
+      "urls":["https://gateway.marvel.com:443/v1/public/characters/**"],
+      "cacheConfig":{
         "strategy": "freshness",
-        "maxSize": 10,
-        "maxAge": "1h",
-        "timeout": "5s"
+        "maxSize": 20,
+        "maxAge": "12h",
+        "timeout": "10s"
       }
     }
   ]

@@ -1,30 +1,49 @@
 <div class="encapsulado">
+
   <form>
-    <section>
-      <div class="row col-12 margin-div-ajst">
-        <div class="col-xs-1 margin-ajst">
-          <label class="f-left">Search by full name : </label><br>
-          <input [(ngModel)]="name" name="name" type="text" class="form-control" placeholder="Ex: Spider-Man">
-          {{name}}
-        </div>
-        <div class="col-xs-1 margin-ajst">
-          <label class="f-left text-nowrap bd-highlight">Search by initials of the name :</label><br>
-          <input [(ngModel)]="nameStartsWith" name="nameStartsWith" type="text" class="form-control" placeholder="Ex:  Sp">
-          {{nameStartsWith}}
-        </div>
-        <div class="col-xs-1">
-          <button class="btn btn btn-outline-danger margin-btn-ajst " [disabled]="notConflict" (click)="search()"  >Search</button>
-        </div>
+    <div class="row col-12 margin-div-ajst">
+      <div class="col-xs-1 margin-ajst">
+        <label class="f-left">Search by complete name : </label><br>
+        <input [(ngModel)]="name" name="name" type="text" class="form-control" placeholder="Ex: Spider-Man">
       </div>
-    </section>
+      <div class="col-xs-1 margin-ajst">
+        <label class="f-left text-nowrap bd-highlight">Search by name's initials :</label><br>
+        <input [(ngModel)]="nameStartsWith" name="nameStartsWith" type="text" class="form-control" placeholder="Ex:  Sp">
+      </div>
+      <div class="col-xs-1">
+        <button class="btn btn btn-outline-danger margin-btn-ajst " [disabled]="notConflict" (click)="search()">Search <i class="fa fa-search" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div *ngIf="notConflict" class="alerts-background-warning" role="alert">
+       Forbidden,  choose only one filter !!
+    </div>
   </form>
   <div class="conf-historico">
     <span class="linha-historico">List of Heroes</span>
   </div>
-  <ul class="list-group" *ngFor="let hero of heros" [routerLink]="['/heroes', hero.id]">
-    <li class="list-group-item"><img src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" width="50" height="50"
-        alt="" class="rounded-circle"> {{hero.name}}</li>
-  </ul>
-  <pagination _nghost-pmm-5 style="float:right; margin-top:10px" [totalItems]="totalHeros" [(ngModel)]="currentPage" [maxSize]="3" [boundaryLinks]="showBoundaryLinks"
-    (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+  <div *ngIf="!spin">
+    <div *ngIf="heros">
+      <ul class="list-group" *ngFor="let hero of heros" [routerLink]="['/heroes', hero.id]">
+        <li class="list-group-item"><img src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" width="50" height="50"
+            alt="" class="rounded-circle"> {{hero.name}}</li>
+      </ul>
+      <div *ngIf="totalHeros">
+        <pagination _nghost-pmm-5 style="float:right; margin-top:10px" [totalItems]="totalHeros" [(ngModel)]="currentPage"
+          [maxSize]="3" [boundaryLinks]="showBoundaryLinks" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
+          nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+      </div>
+    </div>
+
+    <div *ngIf="!heros" class="alert alerts-background" role="alert">
+      All heroes are busy saving the world!!
+    </div>
+    <div *ngIf="heros?.length === 0" class="alert alerts-background" role="alert">
+      Hero not found !! Maybe he is from DC.
+    </div>
+  </div>
+  <div *ngIf="spin" class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
 </div>

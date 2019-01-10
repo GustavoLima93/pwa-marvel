@@ -9,7 +9,7 @@ import { SwUpdate } from '@angular/service-worker';
   styleUrls: ['./heroeslist.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class HeroeslistComponent implements OnInit, DoCheck, AfterViewInit {
+export class HeroeslistComponent implements OnInit, DoCheck {
 
   public heros: Heroes[];
   public totalHeros: number;
@@ -18,62 +18,60 @@ export class HeroeslistComponent implements OnInit, DoCheck, AfterViewInit {
   public name: string;
   public nameStartsWith: string;
   public currentPage:number;
+  public spin = false;
 
   constructor(
     private heroService: HeroesService,
 
-  ) {  
+  ) {
   }
 
   ngOnInit() {
-    this.getHeros();   
+    this.spin = true
+    this.getHeros();
+    this.getCurrentPage();
   }
 
   ngDoCheck() {
-    this.name && this.nameStartsWith ? this.notConflict = true :  this.notConflict = false;        
+    this.name && this.nameStartsWith ? this.notConflict = true :  this.notConflict = false;
   }
-
-  ngAfterViewInit() {
-
-    if(this.currentPage = 1){
-      this.getCurrentPage();
-    }
-    console.log('carrregou')
-   
-  }
-  
 
   getCurrentPage() {
     return this.currentPage = Number(this.heroService.getOffSet())/10+1;
   }
 
-
   getHeros(offset?: string) {
+    console.log("entrou aqui !!")
     let page = ''
     offset ? page = offset : page = '' // trataiva para offset
 
     this.heroService.getHeroes(page).subscribe((Response: Resp) => {
       this.heros = Response.data.results
       this.totalHeros = Response.data.total
+      this.spin = false
     }, err => {
       console.log(err);
+      this.spin = false;
     })
   }
 
-  pageChanged(event: any) {        
+  pageChanged(event: any) {
     let offset = String(event.page - 1);
-    offset === '0' ? offset = '0' : offset = offset + '0'; // tratativa caso a pagina selecionada seja a primeira 
+    offset === '0' ? offset = '0' : offset = offset + '0'; // tratativa caso a pagina selecionada seja a primeira
+   // window.scrollTo(0, 0);
     return this.getHeros(offset);
   }
 
   search() {
-
+    this.spin = true
     if (this.name) {
       return this.heroService.getHeroesByName(this.name).subscribe((Response: Resp) => {
         this.heros = Response.data.results
         this.totalHeros = Response.data.total
       }, err => {
         console.log(err);
+      },()=>{
+        this.spin = false
       })
     };
 
@@ -83,6 +81,8 @@ export class HeroeslistComponent implements OnInit, DoCheck, AfterViewInit {
         this.totalHeros = Response.data.total
       }, err => {
         console.log(err);
+      },()=>{
+        this.spin = false
       })
     };
 

@@ -21,7 +21,7 @@
     }
 
     .margin-div-ajst{
-        margin-bottom: 20px; 
+        margin-bottom: 20px;
     }
 
     .margin-btn-ajst{
@@ -33,23 +33,39 @@
     }
 
     .conf-historico{
-        border-bottom: solid 1px black; 
+        border-bottom: solid 1px black;
         margin-bottom: 20px;
     }
     .linha-historico{
-        font-size: 30px; 
+        font-size: 30px;
        // font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
         color: black;
         margin-top: 7px;
-        font-weight: 600;
+        //font-weight: 600;
         font-family: 'Montserrat';
-        
+
     }
 
     li {
         margin-top: 10px;
         box-shadow: 0 5px 5px rgb(216, 211, 211);
         font-weight: 600;
+    }
+
+    .alerts-background{
+      background-color: none;
+      border: none;
+      font-family: 'Montserrat';
+      font-size: 20px;
+      color: black
+    }
+
+    .alerts-background-warning{
+      background-color: none;
+      border: none;
+      font-family: 'Montserrat';
+      font-size: 20px;
+      color: #ffa500
     }
 
     li:hover{

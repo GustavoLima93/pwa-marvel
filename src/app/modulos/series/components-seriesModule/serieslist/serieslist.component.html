@@ -1,0 +1,49 @@
+<div class="encapsulado">
+  <form>
+    <div class="row col-12 margin-div-ajst">
+      <div class="col-xs-1 margin-ajst">
+        <label class="f-left">Search by title : </label><br>
+        <input [(ngModel)]="title" name="title" type="text" class="form-control" placeholder="Ex: Avengers: The Initiative">
+      </div>
+      <div class="col-xs-1 margin-ajst">
+        <label class="f-left text-nowrap bd-highlight">Search by title initials :</label><br>
+        <input [(ngModel)]="titleStartsWith" name="nameStartsWith" type="text" class="form-control" placeholder="Ex:  Sp">
+      </div>
+      <div class="col-xs-1">
+        <button class="btn btn btn-outline-danger margin-btn-ajst " [disabled]="notConflict" (click)="search()">Search
+          <i class="fa fa-search" aria-hidden="true"></i></button>
+      </div>
+    </div>
+    <div *ngIf="notConflict" class="alerts-background-warning" role="alert">
+      Forbidden, choose only one filter !!
+    </div>
+  </form>
+  <div class="conf-historico">
+    <span class="linha-historico">List of Comic-Series</span>
+  </div>
+
+  <div *ngIf="!spin">
+    <div *ngIf="series">
+      <ul class="list-group" *ngFor="let serie of series" [routerLink]="['/series', serie.id]">
+        <li class="list-group-item"><img src="{{serie.thumbnail.path}}.{{serie.thumbnail.extension}}" width="50" height="50"
+            alt="" class="rounded"> <span>{{serie.title}}</span><span class="color-red">{{serie.type}}</span></li>
+      </ul>
+      <div *ngIf="totalSeries">
+        <pagination _nghost-pmm-5 style="float:right; margin-top:10px" [totalItems]="totalSeries" [(ngModel)]="currentPage"
+          [maxSize]="3" [boundaryLinks]="showBoundaryLinks" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;"
+          lastText="&raquo;" (pageChanged)="pageChanged($event)"></pagination>
+      </div>
+    </div>
+    <div *ngIf="!series" class="alert alerts-background" role="alert">
+      Service unavaliable please try again later!!
+    </div>
+    <div *ngIf="series?.length === 0" class="alert alerts-background" role="alert">
+      oOps !! Serie not found !!
+    </div>
+  </div>
+  <div *ngIf="spin" class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
