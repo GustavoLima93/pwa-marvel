@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  url: 'https://gateway.marvel.com:443/v1/public'
 };

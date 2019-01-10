@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-body ">
+    <h5 class="card-title">{{hero?.name}}</h5>
+    <p class="card-text" *ngIf="hero?.description != ''">{{hero?.description}}</p>
+    <p *ngIf="hero?.description === ''">Does not have description</p>
+    <h5 class="card-title">Series</h5>
+    <div *ngIf="hero?.series.items">
+      <ul *ngFor="let serie of hero?.series.items">
+        <li>{{serie.name}}</li>
+      </ul>
+    </div>
+  </div>
+  <img src="{{hero?.thumbnail.path}}.{{hero?.thumbnail.extension}}" class="card-img-top" alt="...">
+</div>

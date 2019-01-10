@@ -1,42 +1,30 @@
 <div class="encapsulado">
-    <div class="conf-historico">
-        <span class="linha-historico">Filters</span>
-      </div>
   <form>
     <section>
       <div class="row col-12 margin-div-ajst">
         <div class="col-xs-1 margin-ajst">
           <label class="f-left">Search by full name : </label><br>
-          <input type="text" class="form-control" placeholder="Ex: Spider-Man">
+          <input [(ngModel)]="name" name="name" type="text" class="form-control" placeholder="Ex: Spider-Man">
+          {{name}}
         </div>
         <div class="col-xs-1 margin-ajst">
           <label class="f-left text-nowrap bd-highlight">Search by initials of the name :</label><br>
-          <input type="text" class="form-control" placeholder="Ex:  Sp">
+          <input [(ngModel)]="nameStartsWith" name="nameStartsWith" type="text" class="form-control" placeholder="Ex:  Sp">
+          {{nameStartsWith}}
         </div>
         <div class="col-xs-1">
-          <button class="btn btn-outline-secondary margin-btn-ajst ">Search</button>
+          <button class="btn btn btn-outline-danger margin-btn-ajst " [disabled]="notConflict" (click)="search()"  >Search</button>
         </div>
       </div>
     </section>
   </form>
   <div class="conf-historico">
-      <span class="linha-historico">List of Heroes</span>
-    </div>
-  <table class="table table-bordered table-hover text-center">
-    <thead>
-      <tr>
-        <th scope="col">Avatar</th>
-        <th scope="col">Name</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let hero of heros">
-      <tr tooltip="click to see description.">
-        <td scope="row"><img src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" width="50" height="50" alt=""
-            class="rounded-circle"></td>
-        <td>{{hero.name}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <pagination _nghost-pmm-5 style="float:right" [totalItems]="totalHeros" [maxSize]="3" [boundaryLinks]="showBoundaryLinks"
+    <span class="linha-historico">List of Heroes</span>
+  </div>
+  <ul class="list-group" *ngFor="let hero of heros" [routerLink]="['/heroes', hero.id]">
+    <li class="list-group-item"><img src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" width="50" height="50"
+        alt="" class="rounded-circle"> {{hero.name}}</li>
+  </ul>
+  <pagination _nghost-pmm-5 style="float:right; margin-top:10px" [totalItems]="totalHeros" [(ngModel)]="currentPage" [maxSize]="3" [boundaryLinks]="showBoundaryLinks"
     (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
 </div>
