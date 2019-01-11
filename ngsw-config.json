@@ -36,6 +36,18 @@
         "maxAge": "12h",
         "timeout": "10s"
       }
+    },
+    {
+      "name":"series",
+      "urls":["https://gateway.marvel.com:443/v1/public/series/**"],
+      "cacheConfig":{
+        "strategy": "freshness",
+        "maxSize": 20,
+        "maxAge": "12h",
+        "timeout": "10s"
+      }
     }
+
+
   ]
 }

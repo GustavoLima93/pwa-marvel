@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavHeaderComponent,HomeComponent } from './components-appModule';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 
@@ -25,9 +26,9 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })    
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [{provide:LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
