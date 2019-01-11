@@ -47,7 +47,7 @@ export class HeroeslistComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   getHeros(offset?: string) {
-    console.log("entrou aqui !!")
+
     let page = ''
     offset ? page = offset : page = '' // trataiva para offset
 
@@ -109,14 +109,14 @@ export class HeroeslistComponent implements OnInit, DoCheck, OnDestroy {
 
     this.inscricaoGetHeroes.unsubscribe();
 
-    if(this.inscricaoGetHeroesByName){      
+    if(this.inscricaoGetHeroesByName){
       this.inscricaoGetHeroesByName.unsubscribe();
     }
 
     if(this.inscricoesGetHeroesByNameStartsWith){
       this.inscricoesGetHeroesByNameStartsWith.unsubscribe();
     }
-    
+
 
   }
 
