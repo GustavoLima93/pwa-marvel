@@ -32,6 +32,8 @@
         <pagination _nghost-pmm-5 style="float:right; margin-top:10px" [totalItems]="totalSeries" [(ngModel)]="currentPage"
           [maxSize]="3" [boundaryLinks]="showBoundaryLinks" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;"
           lastText="&raquo;" (pageChanged)="pageChanged($event)"></pagination>
+        <button type="button" class="btn btn-outline-dark pull-left border-none" (click)="scrollTop()">Top <i class="fa fa-arrow-up"
+            aria-hidden="true"></i></button>
       </div>
     </div>
     <div *ngIf="!series" class="alert alerts-background" role="alert">

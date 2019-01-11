@@ -1,3 +1,62 @@
-<p>
-  seriesdetail works!
-</p>
+<div *ngIf="!spin">
+  <a href="#" [routerLink]="['/series/list']"> <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+  <div class="card">
+    <div class="card-body ">
+      <h5 class="card-title">{{serie?.title}}</h5>
+      <p class="card-text" *ngIf="serie?.description">{{serie?.description}}</p>
+      <p *ngIf="!serie?.description">Does not have description</p>
+
+      <div class="col-xs-12 row pad">
+        <div class="col-xs-3 mr" *ngIf="serie?.characters.items.length">
+          <h5 class="card-title">Heroes <a class="btn" (click)="isCollapsedHeroes = !isCollapsedHeroes"
+              [attr.aria-expanded]="!isCollapsedHeroes" aria-controls="collapseBasic"><i class="fa fa-plus" aria-hidden="true"></i></a></h5>
+          <div id="collapseBasic" [collapse]="isCollapsedHeroes">
+            <ul *ngFor="let character of serie?.characters.items">
+              <li class="heroes" (click)=" gotoHeroes(character.resourceURI)">{{character.name}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xs-3 mr" *ngIf="serie?.stories.items.length">
+          <h5 class="card-title">Stories <a class="btn" (click)="isCollapsedStories = !isCollapsedStories"
+              [attr.aria-expanded]="!isCollapsedStories" aria-controls="collapseBasic"><i class="fa fa-plus"
+                aria-hidden="true"></i></a></h5>
+          <div id="collapseBasic" [collapse]="isCollapsedStories">
+            <ul *ngFor="let storie of serie?.stories.items">
+              <li>{{storie.name}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xs-3 mr" *ngIf="serie?.comics.items.length">
+          <h5 class="card-title">Comics <a class="btn" (click)="isCollapsedComics = !isCollapsedComics"
+              [attr.aria-expanded]="!isCollapsedComics" aria-controls="collapseBasic"><i class="fa fa-plus" aria-hidden="true"></i></a></h5>
+          <div id="collapseBasic" [collapse]="isCollapsedComics">
+            <ul *ngFor="let comic of serie?.comics.items">
+              <li>{{comic.name}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xs-3" *ngIf="serie?.creators.items.length">
+          <h5 class="card-title">Creators <a class="btn" (click)="isCollapsedCreators = !isCollapsedCreators"
+              [attr.aria-expanded]="!isCollapsedCreators" aria-controls="collapseBasic"><i class="fa fa-plus"
+                aria-hidden="true"></i></a></h5>
+          <div id="collapseBasic" [collapse]="isCollapsedCreators">
+            <ul *ngFor="let creator of serie?.creators.items">
+              <li>{{creator.name}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <img src="{{serie?.thumbnail.path}}.{{serie?.thumbnail.extension}}" class="card-img-top" alt="...">
+    </div>
+  </div>
+  <button type="button" class="btn btn-outline-dark pull-left border-none" [routerLink]="['/series/list']"><i class="fa fa-arrow-left"
+      aria-hidden="true"> Back</i></button>
+  <button type="button" class="btn btn-outline-dark pull-right border-none" (click)="scrollTop()">Top <i class="fa fa-arrow-up"
+      aria-hidden="true"></i></button>
+</div>
+
+<div *ngIf="spin" class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>

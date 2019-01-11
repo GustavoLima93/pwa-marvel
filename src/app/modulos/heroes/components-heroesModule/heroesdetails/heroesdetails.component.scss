@@ -17,3 +17,18 @@ a:link {
   text-decoration:none;
   color: black
 }
+
+.heroes {
+  cursor: pointer;
+}
+
+.heroes:hover {
+  
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.border-none {
+  border: none;
+}

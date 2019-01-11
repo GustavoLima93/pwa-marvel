@@ -1,18 +1,29 @@
-<div class="card">
-
-  <div class="card-body ">
-
-    <h5 class="card-title">{{hero?.name}}</h5>
-    <p class="card-text" *ngIf="hero?.description != ''">{{hero?.description}}</p>
-    <p *ngIf="hero?.description === ''">Does not have description</p>
-    <h5 class="card-title">Series</h5>
-    <div *ngIf="hero?.series.items">
-      <ul *ngFor="let serie of hero?.series.items">
-        <li>{{serie.name}}</li>
-      </ul>
+<div *ngIf="!spin">
+  <a href="#" [routerLink]="['/heroes/list']"> <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+  <div class="card">
+    <div class="card-body ">
+      <h5 class="card-title">{{hero?.name}}</h5>
+      <p class="card-text" *ngIf="hero?.description != ''">{{hero?.description}}</p>
+      <p *ngIf="hero?.description === ''">Does not have description</p>
+      <h5 class="card-title">Series <a class="btn" (click)="isCollapsedHeroes = !isCollapsedHeroes"
+          [attr.aria-expanded]="!isCollapsedHeroes" aria-controls="collapseBasic"><i class="fa fa-plus" aria-hidden="true"></i></a></h5>
+      <div *ngIf="hero?.series.items.length">
+        <div id="collapseBasic" [collapse]="isCollapsedHeroes">
+          <ul *ngFor="let serie of hero?.series.items">
+            <li class="heroes" (click)="gotoSeries(serie.resourceURI)">{{serie.name}}</li>
+          </ul>
+        </div>
+      </div>
+      <img src="{{hero?.thumbnail.path}}.{{hero?.thumbnail.extension}}" class="card-img-top" alt="...">
     </div>
-    <img src="{{hero?.thumbnail.path}}.{{hero?.thumbnail.extension}}" class="card-img-top" alt="...">
   </div>
-  <a href="#" [routerLink]="['/heroes/list']"> <i class="fa fa-long-arrow-left fa-2x" aria-hidden="true"></i></a>
-
+  <button type="button" class="btn btn-outline-dark pull-left border-none" [routerLink]="['/heroes/list']"><i class="fa fa-arrow-left"
+      aria-hidden="true"> Back</i></button>
+  <button type="button" class="btn btn-outline-dark pull-right border-none" (click)="scrollTop()">Top <i class="fa fa-arrow-up"
+      aria-hidden="true"></i></button>
+</div>
+<div *ngIf="spin" class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
 </div>

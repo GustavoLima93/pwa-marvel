@@ -11,11 +11,12 @@
         <input [(ngModel)]="nameStartsWith" name="nameStartsWith" type="text" class="form-control" placeholder="Ex:  Sp">
       </div>
       <div class="col-xs-1">
-        <button class="btn btn btn-outline-danger margin-btn-ajst " [disabled]="notConflict" (click)="search()">Search <i class="fa fa-search" aria-hidden="true"></i></button>
+        <button class="btn btn btn-outline-danger margin-btn-ajst " [disabled]="notConflict" (click)="search()">Search
+          <i class="fa fa-search" aria-hidden="true"></i></button>
       </div>
     </div>
     <div *ngIf="notConflict" class="alerts-background-warning" role="alert">
-       Forbidden,  choose only one filter !!
+      Forbidden, choose only one filter !!
     </div>
   </form>
   <div class="conf-historico">
@@ -31,9 +32,10 @@
         <pagination _nghost-pmm-5 style="float:right; margin-top:10px" [totalItems]="totalHeros" [(ngModel)]="currentPage"
           [maxSize]="3" [boundaryLinks]="showBoundaryLinks" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
           nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+        <button type="button" class="btn btn-outline-dark pull-left border-none" (click)="scrollTop()">Top <i class="fa fa-arrow-up"
+            aria-hidden="true"></i></button>
       </div>
     </div>
-
     <div *ngIf="!heros" class="alert alerts-background" role="alert">
       All heroes are busy saving the world!!
     </div>
