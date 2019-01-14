@@ -29,22 +29,20 @@
   "dataGroups":[
     {
       "name":"heroes",
-      "urls":["https://gateway.marvel.com:443/v1/public/characters/**"],
+      "urls":["/characters"],
       "cacheConfig":{
-        "strategy": "freshness",
-        "maxSize": 20,
-        "maxAge": "12h",
-        "timeout": "10s"
+        "strategy": "performance",
+        "maxSize": 100,
+        "maxAge": "3d"
       }
     },
     {
       "name":"series",
-      "urls":["https://gateway.marvel.com:443/v1/public/series/**"],
+      "urls":["/series"],
       "cacheConfig":{
-        "strategy": "freshness",
-        "maxSize": 20,
-        "maxAge": "12h",
-        "timeout": "10s"
+        "strategy": "performance",
+        "maxSize": 100,
+        "maxAge": "3d"
       }
     }
 
